@@ -26,9 +26,6 @@ class Endereco {
 }
 exports.Endereco = Endereco;
 class Crime {
-    get getVitimas() {
-        return this.vitimas;
-    }
     get getCriminosos() {
         return this.criminosos;
     }
@@ -81,8 +78,8 @@ class Delegacia {
         console.log(`O histórico: ${this.historico}`);
     }
     emitirRelatorioCriminoso(nomeCriminoso) {
-        const criminosoBuscado = this.historico.filter((crim) => {
-            return crim.getCriminosos.find((criminoso) => criminoso.getNome.toLowerCase() === nomeCriminoso.toLowerCase());
+        const criminosoBuscado = this.historico.filter((crime) => {
+            return crime.getCriminosos.find((criminoso) => criminoso.getNome.toLowerCase() === nomeCriminoso.toLowerCase());
         });
         if (!criminosoBuscado) {
             console.log(`Criminoso não encontrado, verifique o nome digitado :|`);

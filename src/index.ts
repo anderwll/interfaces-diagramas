@@ -85,3 +85,6 @@ const delegaciaSiriCascudo = new Delegacia();
 delegaciaSiriCascudo.adicionarCrime(roubo);
 delegaciaSiriCascudo.emitirRelatorio();
 delegaciaSiriCascudo.emitirRelatorioCriminoso("Patrick");
+
+
+
