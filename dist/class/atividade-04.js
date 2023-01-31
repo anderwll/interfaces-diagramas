@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Delegacia = exports.Criminoso = exports.Vitima = exports.Crime = exports.Endereco = void 0;
 class Pessoa {
-    get getNome() {
-        return this.nome;
+    get getCpf() {
+        return this.cpf;
     }
     constructor(nome, dataNascimento, cpf, endereco, altura, peso) {
         this.nome = nome;
@@ -37,12 +37,16 @@ class Crime {
         this.relatoCrime = relatoCrime;
         this.vitimas = [];
         this.criminosos = [];
+        this.armasUsadas = [];
     }
     adicionarVitima(novaVitima) {
         this.vitimas.push(novaVitima);
     }
     adicionarCriminoso(novoCriminoso) {
         this.criminosos.push(novoCriminoso);
+    }
+    adicionarArma(novaArma) {
+        this.armasUsadas.push(novaArma);
     }
 }
 exports.Crime = Crime;
@@ -60,13 +64,9 @@ class Criminoso extends Pessoa {
     constructor(nome, dataNascimento, cpf, endereco, altura, peso) {
         super(nome, dataNascimento, cpf, endereco, altura, peso);
         this.crimes = [];
-        this.armasUsadas = [];
     }
     adicionarCrime(novoCrime) {
         this.crimes.push(novoCrime);
-    }
-    adicionarArma(novaArma) {
-        this.armasUsadas.push(novaArma);
     }
 }
 exports.Criminoso = Criminoso;
@@ -77,15 +77,14 @@ class Delegacia {
     emitirRelatorio() {
         console.log(`O histórico: ${this.historico}`);
     }
-    emitirRelatorioCriminoso(nomeCriminoso) {
-        const criminosoBuscado = this.historico.filter((crime) => {
-            return crime.getCriminosos.find((criminoso) => criminoso.getNome.toLowerCase() === nomeCriminoso.toLowerCase());
-        });
-        if (!criminosoBuscado) {
-            console.log(`Criminoso não encontrado, verifique o nome digitado :|`);
+    emitirRelatorioCriminoso(cpfCriminoso) {
+        const crimesBuscado = this.historico.filter((crime) => crime.getCriminosos.some((criminoso) => criminoso.getCpf === cpfCriminoso));
+        if (!crimesBuscado) {
+            console.log(`Criminoso não encontrado, verifique o cpf digitado :|`);
             return;
         }
-        console.log(`O criminoso buscado é: ${criminosoBuscado}`);
+        console.log(`Crimes cometidos pelo cpf ${cpfCriminoso}`);
+        crimesBuscado.forEach((crime) => console.log(crime));
     }
     adicionarCrime(novoCrime) {
         this.historico.push(novoCrime);

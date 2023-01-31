@@ -16,13 +16,13 @@ retangulo.redimensionar();
 // --- ATIVIDADE 04 ---
 const ladrao = new class_1.Criminoso("Patrick", "02/02/1992", "987.654.321-00", new class_1.Endereco("Rua Fundo Mar", 69, "Bairro Algas Calcárias", "Sla", "Brazil", "95900-888"), 1.7, 85);
 const vitima = new class_1.Vitima("Bob Sponja", "01/01/1991", "123.456.678-00", new class_1.Endereco("Rua Fundo Mar", 69, "Bairro Abacaxi", "Sla", "Brazil", "95900-999"), 1.5, 65);
-const roubo = new class_1.Crime(155, "Furto Qualificado", new class_1.Endereco("Rua Fundo Mar", 69, "Bairro Abacaxi", "Sla", "Brazil", "95900-999"), new Date(), "O meliante abordou a vitima, com uma arma de jogar água, próximo a sua residência, furtando as calças quadradas e seu cahorro.");
+const roubo = new class_1.Crime(155, "Furto Qualificado", new class_1.Endereco("Rua Fundo Mar", 69, "Bairro Abacaxi", "Sla", "Brazil", "95900-999"), new Date(), "O meliante abordou a vitima, com uma arma de jogar água, próximo a sua residência, furtando as calças quadradas e seu Gary.");
 roubo.adicionarCriminoso(ladrao);
 roubo.adicionarVitima(vitima);
 ladrao.adicionarCrime(roubo);
-ladrao.adicionarArma("Arma de jogar água 🔫");
+roubo.adicionarArma("Arma de jogar água 🔫");
 vitima.adicionarCrimeSofrido(roubo);
 const delegaciaSiriCascudo = new class_1.Delegacia();
 delegaciaSiriCascudo.adicionarCrime(roubo);
 delegaciaSiriCascudo.emitirRelatorio();
-delegaciaSiriCascudo.emitirRelatorioCriminoso("Patrick");
+delegaciaSiriCascudo.emitirRelatorioCriminoso("987.654.321-00");

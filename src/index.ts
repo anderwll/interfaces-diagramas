@@ -70,21 +70,21 @@ const roubo = new Crime(
     "95900-999"
   ),
   new Date(),
-  "O meliante abordou a vitima, com uma arma de jogar água, próximo a sua residência, furtando as calças quadradas e seu cahorro."
+  "O meliante abordou a vitima, com uma arma de jogar água, próximo a sua residência, furtando as calças quadradas e seu Gary."
 );
 
 roubo.adicionarCriminoso(ladrao);
 roubo.adicionarVitima(vitima);
 
 ladrao.adicionarCrime(roubo);
-ladrao.adicionarArma("Arma de jogar água 🔫");
+roubo.adicionarArma("Arma de jogar água 🔫");
 
 vitima.adicionarCrimeSofrido(roubo);
 
 const delegaciaSiriCascudo = new Delegacia();
 delegaciaSiriCascudo.adicionarCrime(roubo);
 delegaciaSiriCascudo.emitirRelatorio();
-delegaciaSiriCascudo.emitirRelatorioCriminoso("Patrick");
+delegaciaSiriCascudo.emitirRelatorioCriminoso("987.654.321-00");
 
 
 
